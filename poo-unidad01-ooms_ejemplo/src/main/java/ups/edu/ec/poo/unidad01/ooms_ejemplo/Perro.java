@@ -13,5 +13,6 @@ public class Perro {
     String nombre;
     int edad;
     String raza;
+    int peso;
     
 }
