@@ -5,20 +5,21 @@
 
 package p61;
 
+import p61.adapter.Adapter;
 import p61.composite.Circulo;
 import p61.composite.Dibujo;
 import p61.composite.Linea;
 
 /**
  *
- * @author morti
+ * @author Mauricio Ortiz
  */
 public class PdsUnidad02Ooms {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
         composite();
-        
+        adapter();
     }
     
     public static void composite(){
@@ -37,6 +38,16 @@ public class PdsUnidad02Ooms {
         dibujo2.add(linea2);
         System.out.println(dibujo2.getPeso());
         
+    }
+    
+    public static void adapter(){
+        System.out.println("Adapter");
+        
+        var pagoBanco=new Adapter();
+                
+        System.out.println(pagoBanco.pagado(1, 10));
         
     }
+    
+    
 }
