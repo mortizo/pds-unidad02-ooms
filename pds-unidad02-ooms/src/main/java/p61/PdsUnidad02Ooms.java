@@ -6,6 +6,9 @@
 package p61;
 
 import p61.adapter.Adapter;
+import p61.bridge.InscripcionGrado;
+import p61.bridge.InscripcionPresencialImpl;
+import p61.bridge.NivelEstudio;
 import p61.composite.Circulo;
 import p61.composite.Dibujo;
 import p61.composite.Linea;
@@ -20,6 +23,8 @@ public class PdsUnidad02Ooms {
         System.out.println("Hello World!");
         composite();
         adapter();
+        bridge();
+        
     }
     
     public static void composite(){
@@ -46,6 +51,20 @@ public class PdsUnidad02Ooms {
         var pagoBanco=new Adapter();
                 
         System.out.println(pagoBanco.pagado(1, 10));
+        
+    }
+    
+    public static void bridge(){
+        System.out.println("Bridge");
+        var inscripcion1 = new InscripcionGrado(new InscripcionPresencialImpl());
+        inscripcion1.setNivelEstudio(NivelEstudio.GRADO);
+        if(inscripcion1.controlNivelEstudio()){
+            inscripcion1.inscribir();
+        }
+        else{
+            System.out.println("No es posible inscribir al estudiante");
+        }
+        
         
     }
     
