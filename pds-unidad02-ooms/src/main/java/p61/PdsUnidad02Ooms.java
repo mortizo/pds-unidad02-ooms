@@ -43,6 +43,7 @@ public class PdsUnidad02Ooms {
         dibujo2.add(linea2);
         System.out.println(dibujo2.getPeso());
         
+        
     }
     
     public static void adapter(){
