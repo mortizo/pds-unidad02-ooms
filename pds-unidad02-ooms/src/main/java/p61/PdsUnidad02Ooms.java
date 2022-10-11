@@ -12,6 +12,8 @@ import p61.bridge.NivelEstudio;
 import p61.composite.Circulo;
 import p61.composite.Dibujo;
 import p61.composite.Linea;
+import p61.facade.PersonaFacade;
+import p61.facade.TipoPersona;
 
 /**
  *
@@ -24,7 +26,7 @@ public class PdsUnidad02Ooms {
         composite();
         adapter();
         bridge();
-        
+        facade();
     }
     
     public static void composite(){
@@ -67,6 +69,13 @@ public class PdsUnidad02Ooms {
         }
         
         
+    }
+    
+    public static void facade(){
+        System.out.println("facade");
+        var personaFacade = new PersonaFacade();
+        System.out.println(personaFacade.info(10, TipoPersona.DOCENTE));
+
     }
     
     
