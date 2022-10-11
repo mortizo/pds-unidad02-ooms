@@ -6,10 +6,8 @@ package p61.facade;
 
 /**
  *
- * @author Mauricio Ortiz Ochoa
+ * @author morti
  */
 public enum TipoPersona {
-    
-    ESTUDIANTE, COLABORADOR, DOCENTE, PROVEEDOR;
-    
+        ESTUDIANTE, COLABORADOR, DOCENTE, PROVEEDOR;
 }

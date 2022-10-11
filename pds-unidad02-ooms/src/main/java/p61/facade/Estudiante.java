@@ -6,12 +6,11 @@ package p61.facade;
 
 /**
  *
- * @author Mauricio Ortiz Ochoa
+ * @author morti
  */
 public class Estudiante {
-    
-    public String info(int id){
+ 
+        public String info(int id){
         return "Datos de estudiante";
     }
-    
 }
