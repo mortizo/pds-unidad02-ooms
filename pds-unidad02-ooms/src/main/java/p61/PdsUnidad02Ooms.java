@@ -12,6 +12,9 @@ import p61.bridge.NivelEstudio;
 import p61.composite.Circulo;
 import p61.composite.Dibujo;
 import p61.composite.Linea;
+import p61.decorator.NotificacionConEmail;
+import p61.decorator.NotificacionDecorator;
+import p61.decorator.NotificacionHTML;
 import p61.facade.PersonaFacade;
 import p61.facade.TipoPersona;
 
@@ -27,6 +30,7 @@ public class PdsUnidad02Ooms {
         adapter();
         bridge();
         facade();
+        decorator();
     }
     
     public static void composite(){
@@ -78,5 +82,15 @@ public class PdsUnidad02Ooms {
 
     }
     
+    public static void decorator(){
+        System.out.println("Decorator");
+        var notificacionEmail = new NotificacionDecorator();
+        notificacionEmail.getNotificaciones().add(new NotificacionHTML());
+        var notificacionConEmail = new NotificacionConEmail();
+        notificacionConEmail.setCorreo("mortizo@ups.edu.ec");
+        notificacionEmail.getNotificaciones().add(notificacionConEmail);
+
+        System.out.println(notificacionEmail.send());
+    }    
     
 }
