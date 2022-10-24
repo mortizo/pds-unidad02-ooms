@@ -10,6 +10,6 @@ package p61.bridge;
  */
 public enum NivelEstudio {
     
-    GRADO,POSGRADO, TECNOLOGIA;
+    GRADO,POSGRADO, TECNOLOGIA, PARACADEMICO;
     
 }

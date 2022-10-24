@@ -6,6 +6,7 @@
 package p61;
 
 import p61.adapter.Adapter;
+import p61.adapter.PagoBanco;
 import p61.bridge.InscripcionGrado;
 import p61.bridge.InscripcionPresencialImpl;
 import p61.bridge.NivelEstudio;
@@ -26,11 +27,11 @@ public class PdsUnidad02Ooms {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        composite();
-        adapter();
+      //  composite();
+     //   adapter();
         bridge();
-        facade();
-        decorator();
+      //  facade();
+       // decorator();
     }
     
     public static void composite(){

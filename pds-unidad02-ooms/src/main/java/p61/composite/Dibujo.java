@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Dibujo extends FiguraComponent {
 
-    private List<FiguraComponent> hijos = new ArrayList<FiguraComponent>();
+    private List<FiguraComponent> hijos = new ArrayList<FiguraComponent>();    
     
     @Override
     public void dibujar() {
