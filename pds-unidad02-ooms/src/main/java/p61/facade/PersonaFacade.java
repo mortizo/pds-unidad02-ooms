@@ -9,8 +9,8 @@ package p61.facade;
  * @author morti
  */
 public class PersonaFacade {
-    
-        private Colaborador colaborador = new Colaborador();
+
+    private Colaborador colaborador = new Colaborador();
     private Docente docente = new Docente();
     private Estudiante estudiante = new Estudiante();
     private Proveedor proveedor = new Proveedor();
@@ -35,5 +35,5 @@ public class PersonaFacade {
 
         return retorno;
     }
-    
+
 }

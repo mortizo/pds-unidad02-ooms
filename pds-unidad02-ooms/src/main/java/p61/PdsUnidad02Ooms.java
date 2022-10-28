@@ -29,9 +29,9 @@ public class PdsUnidad02Ooms {
         System.out.println("Hello World!");
       //  composite();
      //   adapter();
-        bridge();
-      //  facade();
-       // decorator();
+      //  bridge();
+     //   facade();
+        decorator();
     }
     
     public static void composite(){
@@ -85,6 +85,7 @@ public class PdsUnidad02Ooms {
     
     public static void decorator(){
         System.out.println("Decorator");
+        
         var notificacionEmail = new NotificacionDecorator();
         notificacionEmail.getNotificaciones().add(new NotificacionHTML());
         var notificacionConEmail = new NotificacionConEmail();
