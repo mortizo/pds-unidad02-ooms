@@ -20,4 +20,6 @@ public class Linea extends FiguraComponent{
         return 100;
     }
     
+    
+    
 }

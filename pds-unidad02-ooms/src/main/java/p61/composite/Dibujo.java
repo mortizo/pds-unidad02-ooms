@@ -38,5 +38,11 @@ public class Dibujo extends FiguraComponent {
     public void delete(FiguraComponent figura){
         this.hijos.remove(figura);
     }
+
+    public List<FiguraComponent> getHijos() {
+        return hijos;
+    }
+    
+    
     
 }
