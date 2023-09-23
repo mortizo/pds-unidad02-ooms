@@ -11,6 +11,9 @@ package p61.adapter;
 public class BancoPichincha {
     
     public boolean obtienePago(int id, int cuota){
+        
+        
+        
         return false;
     }
     

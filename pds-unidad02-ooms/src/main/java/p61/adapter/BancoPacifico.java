@@ -12,8 +12,10 @@ import java.util.ArrayList;
  */
 public class BancoPacifico {
     
-    public boolean pagado(int cuota, int id){       
-        return true;
+    public boolean pagado(int cuota, int id){ 
+        
+        
+        return false;
     }
     
 }
