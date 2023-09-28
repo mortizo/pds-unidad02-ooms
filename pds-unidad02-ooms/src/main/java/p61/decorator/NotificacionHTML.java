@@ -9,14 +9,16 @@ package p61.decorator;
  * @author morti
  */
 public class NotificacionHTML extends NotificacionDecorator{
+
+    
+    public NotificacionHTML(Notificacion notificacion) {
+        super(notificacion);
+    }
     
     @Override
     public String send() {
-        return this.formatoHTML();
+        return super.send()+" Formato HTML agregado";
     }
     
-    public String formatoHTML(){
-        return "Formato HTML agregado";
-    }
     
 }

@@ -10,20 +10,14 @@ package p61.decorator;
  */
 public class NotificacionConEmail extends NotificacionDecorator{
     
-    private String correo;
+
+    public NotificacionConEmail(Notificacion notificacion) {
+        super(notificacion);
+    }
     
     @Override
     public String send() {
-        return this.getCorreo();
-    }
-    
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
+        return super.send()+" Notificado por email";
     }
     
     

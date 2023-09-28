@@ -18,7 +18,11 @@ public abstract class Inscripcion {
     }
     
     public void inscribir(){
+        
+        
         System.out.println("Estudiante inscrito...");
+    
+    
     }
     
     public abstract boolean controlNivelEstudio();

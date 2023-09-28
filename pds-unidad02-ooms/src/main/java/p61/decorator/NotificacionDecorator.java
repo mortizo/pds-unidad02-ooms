@@ -11,27 +11,19 @@ import java.util.List;
  *
  * @author morti
  */
-public class NotificacionDecorator implements Notificacion {
+public abstract class NotificacionDecorator implements Notificacion {
     
-    private List<Notificacion> notificaciones = new ArrayList<Notificacion>();
+    protected Notificacion notificacion;
 
+    public NotificacionDecorator(Notificacion notificacion) {
+        this.notificacion=notificacion;
+    }
+    
     @Override
     public String send() {
-        var retorno="Usted ha sido notificado ";
-        for(var notificacion: this.notificaciones){
-            retorno+=notificacion.send();
-        }
+        var retorno=notificacion.send();
         return retorno;
     }
-
-    public List<Notificacion> getNotificaciones() {
-        return notificaciones;
-    }
-
-    public void setNotificaciones(List<Notificacion> notificaciones) {
-        this.notificaciones = notificaciones;
-    }
-    
-    
+ 
     
 }
