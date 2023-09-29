@@ -12,7 +12,9 @@ public class NotificacionImpl implements Notificacion{
 
     @Override
     public String send() {
-        return "Usted ha sido notificado por el sistema";
+        return "Usted se encuentra inscrito";
     }
+
+   
     
 }

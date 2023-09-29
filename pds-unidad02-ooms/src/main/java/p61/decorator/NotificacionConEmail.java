@@ -9,17 +9,16 @@ package p61.decorator;
  * @author morti
  */
 public class NotificacionConEmail extends NotificacionDecorator{
-    
 
     public NotificacionConEmail(Notificacion notificacion) {
         super(notificacion);
     }
-    
+
     @Override
     public String send() {
-        return super.send()+" Notificado por email";
+        return super.send()+ " Se envía por mail... "; 
     }
-    
+
     
     
     

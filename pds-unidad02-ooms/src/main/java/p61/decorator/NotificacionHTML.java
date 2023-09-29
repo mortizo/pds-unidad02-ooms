@@ -17,7 +17,7 @@ public class NotificacionHTML extends NotificacionDecorator{
     
     @Override
     public String send() {
-        return super.send()+" Formato HTML agregado";
+        return super.send()+" se cambia a Formato HTML... ";
     }
     
     

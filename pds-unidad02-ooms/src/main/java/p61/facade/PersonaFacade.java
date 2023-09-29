@@ -14,6 +14,9 @@ public class PersonaFacade {
     private Docente docente = new Docente();
     private Estudiante estudiante = new Estudiante();
     private Proveedor proveedor = new Proveedor();
+    private Seguridad seguridad = new Seguridad();
+    
+    
 
     public String info(int id, TipoPersona tipo) {
         var retorno = "";
