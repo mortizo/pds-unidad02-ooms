@@ -16,7 +16,7 @@ public class Piedra extends PersonajeDecorator{
 
     @Override
     public String combatir() {
-        return personaje.combatir()+" 5 puntos de píedra ";
+        return personaje.combatir()+" +5 puntos de píedra ";
     }
     
 }
