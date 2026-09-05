@@ -33,6 +33,10 @@ public class Dibujo extends FiguraComponent {
         return Collections.unmodifiableList(hijos);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     @Override
     public int getPeso() {
         return hijos.stream().mapToInt(FiguraComponent::getPeso).sum();

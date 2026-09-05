@@ -25,9 +25,19 @@ public abstract class FiguraComponent {
      * @return representacion textual de la figura o del dibujo completo
      */
     public final String dibujar() {
-        String resultado = dibujar(0);
+        String resultado = representar();
         System.out.println(resultado);
         return resultado;
+    }
+
+    /**
+     * Devuelve la representacion sin escribir en la consola.
+     * Es util para vistas graficas y otros clientes del modelo.
+     *
+     * @return representacion textual completa
+     */
+    public final String representar() {
+        return dibujar(0);
     }
 
     protected abstract String dibujar(int nivel);
