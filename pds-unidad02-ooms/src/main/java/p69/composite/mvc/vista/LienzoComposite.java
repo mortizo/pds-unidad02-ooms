@@ -36,6 +36,12 @@ public class LienzoComposite extends JPanel {
 
     public void setDibujo(Dibujo dibujo) {
         this.dibujo = dibujo;
+        if (dibujo != null) {
+            int ancho = Math.max(760, calcularAncho(dibujo) + 56);
+            int alto = Math.max(480, calcularProfundidad(dibujo) * 150 + 130);
+            setPreferredSize(new Dimension(ancho, alto));
+            revalidate();
+        }
         repaint();
     }
 
@@ -161,5 +167,32 @@ public class LienzoComposite extends JPanel {
         FontMetrics metrics = g2.getFontMetrics();
         g2.drawString(texto, x - metrics.stringWidth(texto) / 2,
                 y + metrics.getAscent() / 2);
+    }
+
+    private int calcularAncho(FiguraComponent componente) {
+        if (!(componente instanceof Dibujo)) {
+            return 150;
+        }
+        Dibujo composite = (Dibujo) componente;
+        if (composite.getHijos().isEmpty()) {
+            return 180;
+        }
+        int ancho = 28;
+        for (FiguraComponent hijo : composite.getHijos()) {
+            ancho += calcularAncho(hijo) + 10;
+        }
+        return ancho;
+    }
+
+    private int calcularProfundidad(FiguraComponent componente) {
+        if (!(componente instanceof Dibujo)
+                || ((Dibujo) componente).getHijos().isEmpty()) {
+            return 1;
+        }
+        int profundidad = 0;
+        for (FiguraComponent hijo : ((Dibujo) componente).getHijos()) {
+            profundidad = Math.max(profundidad, calcularProfundidad(hijo));
+        }
+        return profundidad + 1;
     }
 }

@@ -2,14 +2,16 @@ package p69.composite.mvc.modelo;
 
 import p69.composite.Circulo;
 import p69.composite.Dibujo;
+import p69.composite.FiguraComponent;
 import p69.composite.Linea;
 import p69.composite.Texto;
 
-/**
- * Modelo de la demostracion MVC. Construye una jerarquia fija para explicar
- * el patron Composite sin mezclar la preparacion de datos con la interfaz.
- */
+/** Modelo editable de la demostracion MVC del patron Composite. */
 public class ModeloComposite {
+
+    public enum TipoComponente {
+        LINEA, CIRCULO, TEXTO, DIBUJO
+    }
 
     private final Dibujo raiz;
 
@@ -27,6 +29,81 @@ public class ModeloComposite {
 
     public String getDescripcion() {
         return raiz.representar();
+    }
+
+    public FiguraComponent agregar(Dibujo padre, TipoComponente tipo,
+            String detalle, int peso) {
+        if (padre == null || !contiene(raiz, padre)) {
+            throw new IllegalArgumentException(
+                    "Seleccione un dibujo valido como destino");
+        }
+        if (tipo == null) {
+            throw new IllegalArgumentException("Seleccione un tipo de componente");
+        }
+
+        FiguraComponent nuevo;
+        switch (tipo) {
+            case LINEA:
+                nuevo = new Linea(peso);
+                break;
+            case CIRCULO:
+                nuevo = new Circulo(peso);
+                break;
+            case TEXTO:
+                nuevo = new Texto(detalle, peso);
+                break;
+            case DIBUJO:
+                nuevo = new Dibujo(detalle);
+                break;
+            default:
+                throw new IllegalArgumentException("Tipo no reconocido");
+        }
+        padre.add(nuevo);
+        return nuevo;
+    }
+
+    public boolean eliminar(FiguraComponent componente) {
+        Dibujo padre = getPadre(componente);
+        if (padre == null) {
+            return false;
+        }
+        padre.delete(componente);
+        return true;
+    }
+
+    public Dibujo getPadre(FiguraComponent componente) {
+        if (componente == null || componente == raiz) {
+            return null;
+        }
+        return buscarPadre(raiz, componente);
+    }
+
+    private Dibujo buscarPadre(Dibujo candidato, FiguraComponent buscado) {
+        for (FiguraComponent hijo : candidato.getHijos()) {
+            if (hijo == buscado) {
+                return candidato;
+            }
+            if (hijo instanceof Dibujo) {
+                Dibujo encontrado = buscarPadre((Dibujo) hijo, buscado);
+                if (encontrado != null) {
+                    return encontrado;
+                }
+            }
+        }
+        return null;
+    }
+
+    private boolean contiene(Dibujo candidato, FiguraComponent buscado) {
+        if (candidato == buscado) {
+            return true;
+        }
+        for (FiguraComponent hijo : candidato.getHijos()) {
+            if (hijo == buscado
+                    || hijo instanceof Dibujo && contiene((Dibujo) hijo, buscado)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Dibujo crearDemostracion() {
